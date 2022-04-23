@@ -1,8 +1,13 @@
 const express = require("express");
 const app = express();
+const dotenv = require("dotenv");
+const mongoose = require("mongoose");
 
-console.log("Api");
+dotenv.config();
+mongoose.connect(process.env.MONGO_URL).then(console.log("Connected to MONGO_URL"))
+.catch(err=>console.log(err));
 
-app.listen(3000, function(){
-    console.log("Server started in Port number 3000");
+
+app.listen("5000", () => {
+    console.log("Server started in Port number 5000");
 });
